@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class OrderManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class OrderManager : MonoBehaviour
     public List<string> sirups = new List<string>();
     public List<string> teas = new List<string>();
 
+    public TextMeshPro orderText;
+    
+    public TextMeshPro NextorderText;
+ 
     public List<Order> orders = new List<Order>();
 
     // Call this method when an NPC hits a trigger
@@ -29,22 +34,41 @@ public class OrderManager : MonoBehaviour
         int randomIndex = Random.Range(0, itemList.Count);
         return itemList[randomIndex];
     }
-    public void NPCReachedTrigger()
+public void NPCReachedTrigger()
+{
+    Order newOrder = new Order();
+    newOrder.cupSize = GetRandomItem(cupSizes);
+    newOrder.boba = GetRandomItem(bobas);
+    newOrder.syrup = GetRandomItem(sirups);
+    newOrder.tea = GetRandomItem(teas);
+
+    orders.Add(newOrder);
+
+    if (orders.Count >= 1)
     {
-        Order newOrder = new Order();
-        newOrder.cupSize = GetRandomItem(cupSizes);
-        newOrder.boba = GetRandomItem(bobas);
-        newOrder.syrup = GetRandomItem(sirups);
-        newOrder.tea = GetRandomItem(teas);
-
-        orders.Add(newOrder);
-
-        
-        Order currentOrder = newOrder;
-
-        Debug.Log("Current order: " + currentOrder.cupSize + ", " + currentOrder.boba + ", " + currentOrder.syrup + ", " + currentOrder.tea);
-        // Do something with the current order, like displaying it to the player or initiating a task.
+        // Display the first order in orderText
+        Order currentOrder = orders[0];
+        orderText.text =
+            "Cupsize: " + currentOrder.cupSize + "\n" +
+            "Boba: " + currentOrder.boba + "\n" +
+            "Syrup: " + currentOrder.syrup + "\n" +
+            "Tea: " + currentOrder.tea;
     }
+
+    if (orders.Count >= 2)
+    {
+        // Display the second order in NextorderText
+        Order nextOrder = orders[1];
+        NextorderText.text =
+            "Cupsize: " + nextOrder.cupSize + "\n" +
+            "Boba: " + nextOrder.boba + "\n" +
+            "Syrup: " + nextOrder.syrup + "\n" +
+            "Tea: " + nextOrder.tea;
+    }
+
+    Debug.Log("Current order: " + newOrder.cupSize + ", " + newOrder.boba + ", " + newOrder.syrup + ", " + newOrder.tea);
+    // Do something with the current order, like displaying it to the player or initiating a task.
+}
 
     // Call this method when the player places a cup on a trigger
    public void CupPlacedTrigger(string playerCupSize)
