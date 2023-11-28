@@ -12,8 +12,7 @@ public class NPCControl : MonoBehaviour
     {
        
         if (other.CompareTag("OrderTable"))  
-        {
-                
+        {      
          orderManager.NPCReachedTrigger(npcID);
         }
         
