@@ -25,7 +25,7 @@ public class TimerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("NPC"))
+        if (other.CompareTag("OrderTable"))
         {
             Debug.Log("Object entered trigger!");
             timerStarted = true; // Start the timer

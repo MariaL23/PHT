@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ItemPlacement : MonoBehaviour
 {
-    public string itemType; // Set this in the Inspector for each item GameObject
+    private int npcID;
+    public string itemType;
     private OrderManager orderManager;
 
     private void Start()
@@ -17,8 +18,16 @@ public class ItemPlacement : MonoBehaviour
     {
         if (other.CompareTag("ItemTrigger"))
         {
-            // Call the ItemPlacedTrigger method from OrderManager and pass the item type
-            orderManager.ItemPlacedTrigger(itemType);
+            // Check if the cup has been placed correctly
+            if (orderManager.IsCupPlaced())
+            {
+                // Call the ItemPlacedTrigger method from OrderManager and pass the item type
+                orderManager.ItemPlacedTrigger(itemType, npcID);
+            }
+            else
+            {
+               
+            }
         }
     }
 }
