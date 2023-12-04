@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_Liquid
+  m_Name: Tea 1
   m_Shader: {fileID: -6465566751694194690, guid: 05804e0b466a3b146939406a06406e51,
     type: 3}
   m_Parent: {fileID: 0}
@@ -56,14 +56,14 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.5
-    - _Transparentmask: 0
+    - _Transparentmask: 0.1
     - _VoronioAgitation: 1
     - _VoronoiPower: 2
-    - _VoronoiScale: 2
+    - _VoronoiScale: 1
     m_Colors:
-    - _BaseColor: {r: 0.043170962, g: 0.254717, b: 0.0060074753, a: 1}
+    - _BaseColor: {r: 0.17058824, g: 0.018688003, b: 0, a: 0.79607844}
     - _Vector2: {r: 0, g: 0.2, b: 0, a: 0}
     - _VorSpeed: {r: 0, g: 1, b: 0, a: 0}
-    - _VoronoiColor: {r: 0.036889452, g: 0.19806935, b: 0.018500218, a: 1}
+    - _VoronoiColor: {r: 0.17144115, g: 0.018500218, b: 0, a: 0.70980394}
     - _Vorotilling: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

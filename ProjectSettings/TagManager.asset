@@ -9,6 +9,9 @@ TagManager:
   - ItemTrigger
   - OrderTable
   - CUP
+  - Fluid
+  - BlackTea
+  - GreenTea
   layers:
   - Default
   - TransparentFX
