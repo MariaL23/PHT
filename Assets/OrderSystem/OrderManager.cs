@@ -25,6 +25,9 @@ public class OrderManager : MonoBehaviour
 
     public GameObject GreenteaObject;
     public GameObject BlackteaObject;
+    public GameObject BlackBobaObject;
+    public GameObject Boba2Object;
+    
 
 
     public List<string> cupSizes = new List<string>();
@@ -147,7 +150,7 @@ public void ItemPlacedTrigger(string playerItemType, int npcID)
             else if (playerItemType == currentOrder.syrup) syrupPlaced = true;
             else if (playerItemType == currentOrder.tea) teaPlaced = true;
             
-            
+            /*
             // Check if the triggered item type is "Greentea"
             if (playerItemType == "GreenTea")
             {
@@ -155,15 +158,25 @@ public void ItemPlacedTrigger(string playerItemType, int npcID)
                 
             }
 
-                  if (playerItemType == "BlackTea")
+                if (playerItemType == "BlackTea")
             {
-                // Activate the corresponding object
             
-                
-                
               BlackteaObject.SetActive(true);
                 
             }
+
+                if (playerItemType == "Black")
+            {
+                 BlackBobaObject.SetActive(true);
+                
+            }
+
+                if (playerItemType == "Orange")
+            {
+                    Boba2Object.SetActive(true);
+                
+            }
+            */
 
             // Check if all items in the order are placed correctly
             if (bobaPlaced && syrupPlaced && teaPlaced )
