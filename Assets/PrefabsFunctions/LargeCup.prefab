@@ -1312,6 +1312,7 @@ GameObject:
   - component: {fileID: 5419406062039137017}
   - component: {fileID: 1256828390638694360}
   - component: {fileID: 4665596606341057208}
+  - component: {fileID: 2294767267158741323}
   m_Layer: 0
   m_Name: LargeCup
   m_TagString: CUP
@@ -1327,7 +1328,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6543180372427491197}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.155, y: -0.35804158, z: 0.4128}
   m_LocalScale: {x: 1, y: 0.88, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1601,6 +1602,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cupSize: Large
   cupNpcID: 0
+--- !u!65 &2294767267158741323
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6543180372427491197}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.19531633, y: 0.29779613, z: 0.17498165}
+  m_Center: {x: 0, y: 0.14974359, z: 0.000000040978193}
 --- !u!1 &6708395693252058645
 GameObject:
   m_ObjectHideFlags: 0
@@ -2419,7 +2441,7 @@ Transform:
   m_GameObject: {fileID: 8819577503760794745}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0743, y: 0.1806, z: 0}
+  m_LocalPosition: {x: 0.0575, y: 0.1806, z: -0.084}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
