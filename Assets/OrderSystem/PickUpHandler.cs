@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class PickUpHandler : MonoBehaviour
 { private int cupNpcID; // Variable to store cupNpcID
     private int npcID; // Variable to store NPC ID
     private bool hasCup; // Flag to track if a cup is present in the collider
     private bool hasNPC; // Flag to track if an NPC is present in the collider
+    public VisualEffect visualEffect;
+
+    public GameObject OrderBag;
 
     // Reference to the OrderManager script
     public OrderManager orderManager;
@@ -14,16 +18,23 @@ public class PickUpHandler : MonoBehaviour
         // Check if the entering object has the CupPlacement component
         CupPlacement cupPlacement = other.GetComponent<CupPlacement>();
         if (cupPlacement != null)
-        {
+        {   
+            if (orderManager.completedOrders.Count > 0){
             int cupNpcID = cupPlacement.cupNpcID;
             Debug.Log("Cup with id " + cupNpcID + " has entered the collider");
-
+            visualEffect.Play();
+            OrderBag.SetActive(true);
             // Store cupNpcID in the variable
+            
             this.cupNpcID = cupNpcID;
             hasCup = true;
+            Destroy(other.gameObject);
+            OrderBag.GetComponent<OrderBagScript>().SetCupNpcID(cupNpcID);
+
 
             // Check if both cup and NPC are present and have the same ID
             CheckIDs();
+           }
         }
 
         // Check if the entering object has the NPCControl component
@@ -38,6 +49,8 @@ public class PickUpHandler : MonoBehaviour
             // Check if both cup and NPC are present and have the same ID
             CheckIDs();
         }
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -68,12 +81,10 @@ public class PickUpHandler : MonoBehaviour
 
                 if (cupNpcID == firstCompletedOrderNpcID)
                 {
+                  
                     Debug.Log("CupNpcID matches the NPC ID in the first completed order!");
                 }
-                else
-                {
-                    Debug.Log("CupNpcID does not match the NPC ID in the first completed order.");
-                }
+                
             }
             else
             {

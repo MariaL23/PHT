@@ -17,4 +17,18 @@ public class NPCControl : MonoBehaviour
         }
         
     }
+
+     public void BagPickUp(int cupNpcID)
+    {
+        // Check if the NPC's ID matches the provided cupNpcID
+        if (npcID == cupNpcID)
+        {
+            Debug.Log("NPC with ID " + npcID + " picked up the bag.");
+           
+        }
+        else
+        {
+            Debug.Log("NPC with ID " + npcID + " cannot pick up the bag. IDs do not match.");
+        }
+    }
 }

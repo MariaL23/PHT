@@ -61,7 +61,7 @@ Material:
     - _VoronoiPower: 2
     - _VoronoiScale: 2
     m_Colors:
-    - _BaseColor: {r: 0.051549707, g: 0.33962262, b: 0, a: 1}
+    - _BaseColor: {r: 0.043170962, g: 0.254717, b: 0.0060074753, a: 1}
     - _Vector2: {r: 0, g: 0.2, b: 0, a: 0}
     - _VorSpeed: {r: 0, g: 1, b: 0, a: 0}
     - _VoronoiColor: {r: 0.036889452, g: 0.19806935, b: 0.018500218, a: 1}

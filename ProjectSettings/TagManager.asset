@@ -9,6 +9,14 @@ TagManager:
   - ItemTrigger
   - OrderTable
   - CUP
+  - Fluid
+  - BlackTea
+  - GreenTea
+  - BlackBobaBowl
+  - Boba2Bowl
+  - CupBoba
+  - Boba2
+  - BlackBoba
   layers:
   - Default
   - TransparentFX
