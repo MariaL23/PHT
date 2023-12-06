@@ -17,6 +17,13 @@ public class NPCMovement : MonoBehaviour
 
     private Animator animator;
 
+    public int npcID;  // Assign a unique ID to each NPC in the Unity Editor
+    public OrderManager orderManager;
+
+    public Transform counterWaypoint;
+
+    public NPCCaller Caller;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -37,6 +44,38 @@ public class NPCMovement : MonoBehaviour
             animator.SetBool("walking", false);
             StartCoroutine(WaitAndMove());
         }
+
+       if (Caller != null)
+    {
+        if (Caller.readyOrders.Contains(npcID))
+        {
+            // Debug log to check if the condition is being triggered
+            Debug.Log("Order ID " + npcID + " is ready!");
+
+            // The order is ready, move to the counter waypoint
+            MoveToCounter();
+            // Optionally, you can perform other actions when moving to the counter
+            Debug.Log("Moving NPC with Order ID " + npcID + " to the counter.");
+            
+            // Remove the order from the ready list (assuming you don't want it to move to the counter repeatedly)
+            Caller.readyOrders.Remove(npcID);
+        }
+        else
+        {
+            // Debug log to check if the condition is not being triggered
+            Debug.Log("Order ID " + npcID + " is not ready.");
+        }
+    }
+    }
+
+        void OnTriggerEnter(Collider other)
+    {
+       
+        if (other.CompareTag("OrderTable"))  
+        {      
+         orderManager.NPCReachedTrigger(npcID);
+        }
+        
     }
 
     IEnumerator WaitAndMove()
@@ -69,6 +108,15 @@ public class NPCMovement : MonoBehaviour
 
     private void DoSpecialAction()
     {
+         if (Caller != null)
+    {
+        // Add the NPC ID to the list of ready NPCs
+        Caller.AddReadyNPC(npcID);
+
+    }
+
+
+
         if (animationClip != null)
     {
         // Get the animation state name from the clip
@@ -91,4 +139,19 @@ public class NPCMovement : MonoBehaviour
         Debug.LogError("Animation clip is not assigned.");
     }
     }
+
+
+        public void MoveToCounter()
+{
+    // Ensure the NPC has a NavMeshAgent component
+    NavMeshAgent agent = GetComponent<NavMeshAgent>();
+    if (agent != null && counterWaypoint != null)
+    {
+        // Set the destination to the counter waypoint
+        agent.SetDestination(counterWaypoint.position);
+    }
+}
+
+
+
 }

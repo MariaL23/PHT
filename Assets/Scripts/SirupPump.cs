@@ -21,4 +21,12 @@ public class SirupPump : MonoBehaviour
         }
         
     }
+
+
+     private IEnumerator WaitDeactivate()
+    {
+        yield return new WaitForSeconds(0.2f);
+        Sirup.SetActive(true);
+       
+    }
 }

@@ -263,7 +263,7 @@ RectTransform:
   m_Father: {fileID: 1128125108158364522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -543,7 +543,6 @@ GameObject:
   - component: {fileID: 5374397927198889274}
   - component: {fileID: 6908963132616743234}
   - component: {fileID: 4793283268764566547}
-  - component: {fileID: 9057024616166996763}
   - component: {fileID: 1385179581164946069}
   m_Layer: 0
   m_Name: Character_Android_Female_01
@@ -675,20 +674,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 443490588172567273}
   timer: 15
---- !u!114 &9057024616166996763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1426672598629603697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1213200bf3b29f748b4d80eb9c686113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: 1
-  orderManager: {fileID: 0}
 --- !u!114 &1385179581164946069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -708,6 +693,9 @@ MonoBehaviour:
   waitTime: 5
   Speed: 1.5
   animationClip: {fileID: 7400000, guid: 72121e68641fc7a479c4229449b33cc8, type: 2}
+  npcID: 0
+  orderManager: {fileID: 0}
+  counterWaypoint: {fileID: 0}
 --- !u!1 &1475465615179698617
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +955,7 @@ RectTransform:
   m_Father: {fileID: 4823932925428177617}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

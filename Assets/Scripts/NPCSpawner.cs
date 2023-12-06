@@ -34,7 +34,7 @@ public class NPCSpawner : MonoBehaviour
        void SpawnInitialNPC()
     {
         // Spawn the initial NPC based on the currentPrefabIndex
-        GameObject selectedPrefab = npcPrefabs[2];
+        GameObject selectedPrefab = npcPrefabs[1];
         Instantiate(selectedPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 }

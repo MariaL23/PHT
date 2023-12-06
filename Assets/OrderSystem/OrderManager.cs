@@ -1,4 +1,4 @@
-// OrderManager script
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -212,6 +212,19 @@ public void ItemPlacedTrigger(string playerItemType, int npcID)
 public bool IsCupPlaced()
 {
     return cupPlaced;
+}
+
+void OnApplicationQuit()
+{
+    orders.Clear();
+    completedOrders.Clear();
+}
+
+
+void OnDisable()
+{
+    orders.Clear();
+    completedOrders.Clear();
 }
 
 }

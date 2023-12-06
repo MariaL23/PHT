@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 9133265674550657433}
   - component: {fileID: 983165014582516879}
   - component: {fileID: 2914931783582332701}
-  - component: {fileID: 5395094927876565936}
   - component: {fileID: 1586647450576939505}
   - component: {fileID: 1753267937872033527}
   - component: {fileID: 5332255246672901194}
@@ -148,20 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 1796161673754162983}
   timer: 15
---- !u!114 &5395094927876565936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734730716842842490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1213200bf3b29f748b4d80eb9c686113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: 3
-  orderManager: {fileID: 0}
 --- !u!114 &1586647450576939505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +166,9 @@ MonoBehaviour:
   waitTime: 5
   Speed: 1.5
   animationClip: {fileID: 7400000, guid: 72121e68641fc7a479c4229449b33cc8, type: 2}
+  npcID: 0
+  orderManager: {fileID: 0}
+  counterWaypoint: {fileID: 0}
 --- !u!195 &1753267937872033527
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1710,7 +1698,7 @@ RectTransform:
   m_Father: {fileID: 158536896275740214}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3940,7 +3928,7 @@ RectTransform:
   m_Father: {fileID: 4124706918335958871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

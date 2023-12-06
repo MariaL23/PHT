@@ -17,7 +17,7 @@ public class CupSpawner : MonoBehaviour
         if (other.CompareTag("CUP"))
         {
             isInside = true;
-            Debug.Log("Cup is inside the collider.");
+           // Debug.Log("Cup is inside the collider.");
         }
     }
 
@@ -27,7 +27,7 @@ public class CupSpawner : MonoBehaviour
         if (other.CompareTag("CUP"))
         {
             isInside = false;
-            Debug.Log("Cup has exited the collider.");
+           // Debug.Log("Cup has exited the collider.");
         }
     }
 
