@@ -722,8 +722,7 @@ Transform:
   m_LocalPosition: {x: -0.44, y: 7.628, z: 11.595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1552353935}
+  m_Children: []
   m_Father: {fileID: 229310151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &111498327 stripped
@@ -1643,6 +1642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1491410950}
   - {fileID: 109155095}
   - {fileID: 114009450}
   - {fileID: 2043342235}
@@ -5414,6 +5414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SmallCupSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849236831598934315, guid: 22c067e662e5e554ca728b4d55301354,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8135481764575257113, guid: 22c067e662e5e554ca728b4d55301354,
         type: 3}
@@ -9556,6 +9561,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3984423479646318554, guid: 3d4ee443c4f201843ad353eb6a12bc7f,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3984423479646318554, guid: 3d4ee443c4f201843ad353eb6a12bc7f,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.24
+      objectReference: {fileID: 0}
     - target: {fileID: 4381007774000373797, guid: 3d4ee443c4f201843ad353eb6a12bc7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9570,6 +9585,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PickUpArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269137958991497721, guid: 3d4ee443c4f201843ad353eb6a12bc7f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8269137958991497721, guid: 3d4ee443c4f201843ad353eb6a12bc7f,
+        type: 3}
+      propertyPath: m_TagString
+      value: CounterWaypoint
       objectReference: {fileID: 0}
     - target: {fileID: 8473096555639798980, guid: 3d4ee443c4f201843ad353eb6a12bc7f,
         type: 3}
@@ -9825,7 +9850,6 @@ GameObject:
   - component: {fileID: 1300072312}
   - component: {fileID: 1300072311}
   - component: {fileID: 1300072316}
-  - component: {fileID: 1300072317}
   m_Layer: 0
   m_Name: NPCcube (1)
   m_TagString: NPC
@@ -9960,21 +9984,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerSlider: {fileID: 1868344683}
   timer: 15
---- !u!114 &1300072317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300072310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1213200bf3b29f748b4d80eb9c686113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  npcID: 2
-  orderManager: {fileID: 1798544730}
-  orderBagScript: {fileID: 0}
 --- !u!1 &1307053438
 GameObject:
   m_ObjectHideFlags: 0
@@ -10800,6 +10809,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1458398230}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1491410949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491410950}
+  m_Layer: 0
+  m_Name: ExitWaypoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1491410950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491410949}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.28, y: 6.48, z: 16.23}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 229310151}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491807685
 GameObject:
   m_ObjectHideFlags: 0
@@ -10970,37 +11010,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1552353934
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1552353935}
-  m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1552353935
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1552353934}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.007, y: -1.695, z: -0.73}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 109155095}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1555476545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11691,9 +11700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1213200bf3b29f748b4d80eb9c686113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcID: 1
-  orderManager: {fileID: 1798544730}
-  orderBagScript: {fileID: 0}
 --- !u!1 &1640951265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1939361603609498, guid: e86729681aa7cfe4388db6b879a62770,
@@ -12791,6 +12797,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LargeCupSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849236831598934315, guid: 22c067e662e5e554ca728b4d55301354,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8135481764575257113, guid: 22c067e662e5e554ca728b4d55301354,
         type: 3}
@@ -14939,9 +14950,24 @@ PrefabInstance:
       objectReference: {fileID: 1343975315}
     - target: {fileID: 1385179581164946069, guid: 9d89477cb0e5325408fb133e0f52687f,
         type: 3}
+      propertyPath: pickupTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385179581164946069, guid: 9d89477cb0e5325408fb133e0f52687f,
+        type: 3}
+      propertyPath: exitWaypoint
+      value: 
+      objectReference: {fileID: 1491410950}
+    - target: {fileID: 1385179581164946069, guid: 9d89477cb0e5325408fb133e0f52687f,
+        type: 3}
       propertyPath: orderManager
       value: 
       objectReference: {fileID: 1798544730}
+    - target: {fileID: 1385179581164946069, guid: 9d89477cb0e5325408fb133e0f52687f,
+        type: 3}
+      propertyPath: animationClip2
+      value: 
+      objectReference: {fileID: 7400000, guid: a510a83cc5df8924fa46726113e3d100, type: 2}
     - target: {fileID: 1385179581164946069, guid: 9d89477cb0e5325408fb133e0f52687f,
         type: 3}
       propertyPath: orderBagScript
@@ -15157,9 +15183,24 @@ PrefabInstance:
       objectReference: {fileID: 1343975315}
     - target: {fileID: 1586647450576939505, guid: 18e8cc2b48d9cbf4db4c47795287e81e,
         type: 3}
+      propertyPath: pickupTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1586647450576939505, guid: 18e8cc2b48d9cbf4db4c47795287e81e,
+        type: 3}
+      propertyPath: exitWaypoint
+      value: 
+      objectReference: {fileID: 1491410950}
+    - target: {fileID: 1586647450576939505, guid: 18e8cc2b48d9cbf4db4c47795287e81e,
+        type: 3}
       propertyPath: orderManager
       value: 
       objectReference: {fileID: 1798544730}
+    - target: {fileID: 1586647450576939505, guid: 18e8cc2b48d9cbf4db4c47795287e81e,
+        type: 3}
+      propertyPath: animationClip2
+      value: 
+      objectReference: {fileID: 7400000, guid: a510a83cc5df8924fa46726113e3d100, type: 2}
     - target: {fileID: 1586647450576939505, guid: 18e8cc2b48d9cbf4db4c47795287e81e,
         type: 3}
       propertyPath: orderBagScript
@@ -15286,9 +15327,29 @@ PrefabInstance:
       objectReference: {fileID: 1343975315}
     - target: {fileID: 525625517433445034, guid: 1ba0e54a40573864e9ed7e0e4e72d593,
         type: 3}
+      propertyPath: waitTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 525625517433445034, guid: 1ba0e54a40573864e9ed7e0e4e72d593,
+        type: 3}
+      propertyPath: pickupTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 525625517433445034, guid: 1ba0e54a40573864e9ed7e0e4e72d593,
+        type: 3}
+      propertyPath: exitWaypoint
+      value: 
+      objectReference: {fileID: 1491410950}
+    - target: {fileID: 525625517433445034, guid: 1ba0e54a40573864e9ed7e0e4e72d593,
+        type: 3}
       propertyPath: orderManager
       value: 
       objectReference: {fileID: 1798544730}
+    - target: {fileID: 525625517433445034, guid: 1ba0e54a40573864e9ed7e0e4e72d593,
+        type: 3}
+      propertyPath: animationClip2
+      value: 
+      objectReference: {fileID: 7400000, guid: a510a83cc5df8924fa46726113e3d100, type: 2}
     - target: {fileID: 525625517433445034, guid: 1ba0e54a40573864e9ed7e0e4e72d593,
         type: 3}
       propertyPath: orderBagScript
