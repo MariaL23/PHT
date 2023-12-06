@@ -78,6 +78,7 @@ public class NPCMovement : MonoBehaviour
         if (animator.HasState(0, Animator.StringToHash(stateName)))
         {
             animator.Play(stateName);
+            transform.Rotate(0f, 180f, 0f);
             Debug.Log("Special action at the last waypoint!");
         }
         else
