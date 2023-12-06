@@ -12,9 +12,7 @@ public class NPCCaller : MonoBehaviour
         // Add the NPC ID to the list of ready NPCs
         readyNPCIDs.Add(npcID);
 
-        // Optionally, you can perform other actions when an NPC is ready
-        Debug.Log("NPC with ID " + npcID + " is ready!");
-
+      
     
     }
       public void AddReadyOrder(int finisedOrderID)
@@ -22,7 +20,7 @@ public class NPCCaller : MonoBehaviour
         // Add the NPC ID to the list of ready NPCs
         readyOrders.Add(finisedOrderID);
 
-        // Optionally, you can perform other actions when an NPC is ready
+        
         Debug.Log("Order with ID " + finisedOrderID+ " is ready!");
         
     

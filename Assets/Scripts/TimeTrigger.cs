@@ -7,6 +7,9 @@ public class TimerTrigger : MonoBehaviour
     private bool timerStarted = false;
     public float timer = 60f; // 60 seconds
 
+    // Reference to NPCMovement script
+    public NPCMovement npcMovement;
+
     void Update()
     {
         if (timerStarted)
@@ -19,6 +22,9 @@ public class TimerTrigger : MonoBehaviour
                 // Perform actions when the timer reaches zero
                 Debug.Log("Timer has reached zero!");
                 timerStarted = false;
+
+                // Call the method to move to the exit waypoint in NPCMovement script
+                npcMovement.MoveToExitWaypoint();
             }
         }
     }

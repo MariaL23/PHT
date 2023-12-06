@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class NPCMovement : MonoBehaviour
 {
@@ -15,14 +17,24 @@ public class NPCMovement : MonoBehaviour
 
     public AnimationClip animationClip;
 
+    public AnimationClip animationClip2;
+
     private Animator animator;
 
-    public int npcID;  // Assign a unique ID to each NPC in the Unity Editor
+    public int npcID ; // Assign a unique ID to each NPC in the Unity Editor
     public OrderManager orderManager;
 
     public Transform counterWaypoint;
 
     public NPCCaller Caller;
+
+    public float pickupTime = 5f;
+    public GameObject OrderBag;
+
+    public Transform exitWaypoint;
+
+    public GameObject PaymentText;
+    
 
     private void Start()
     {
@@ -49,22 +61,11 @@ public class NPCMovement : MonoBehaviour
     {
         if (Caller.readyOrders.Contains(npcID))
         {
-            // Debug log to check if the condition is being triggered
-            Debug.Log("Order ID " + npcID + " is ready!");
-
-            // The order is ready, move to the counter waypoint
+           
             MoveToCounter();
-            // Optionally, you can perform other actions when moving to the counter
-            Debug.Log("Moving NPC with Order ID " + npcID + " to the counter.");
-            
-            // Remove the order from the ready list (assuming you don't want it to move to the counter repeatedly)
             Caller.readyOrders.Remove(npcID);
         }
-        else
-        {
-            // Debug log to check if the condition is not being triggered
-            Debug.Log("Order ID " + npcID + " is not ready.");
-        }
+       
     }
     }
 
@@ -74,6 +75,13 @@ public class NPCMovement : MonoBehaviour
         if (other.CompareTag("OrderTable"))  
         {      
          orderManager.NPCReachedTrigger(npcID);
+        }
+
+        if (other.CompareTag("PickUpCounter"))
+        {
+            Debug.Log("NPC with ID " + npcID + " has reached the counter.");
+            // Call the leaving action when the NPC hits the PickupArea trigger
+            StartCoroutine(LeavingRoutine());
         }
         
     }
@@ -152,6 +160,53 @@ public class NPCMovement : MonoBehaviour
     }
 }
 
+ IEnumerator LeavingRoutine()
+    {
+         // Wait for a specified time at the counter
+        yield return new WaitForSeconds(pickupTime);
 
+         if (animationClip2 != null)
+    {
+        // Get the animation state name from the clip
+        string stateName = animationClip2.name;
+
+        // Check if the state exists in the Animator Controller
+        if (animator.HasState(0, Animator.StringToHash(stateName)))
+        {
+            animator.Play(stateName);
+          
+        }
+        else
+        {
+            Debug.LogError($"Animation state '{stateName}' not found in the Animator Controller.");
+        }
+    }
+
+    else
+    {
+        Debug.LogError("Animation clip is not assigned.");
+    }
+        if (agent != null && exitWaypoint != null)
+        {
+            PaymentText.SetActive(true);
+            OrderBag.SetActive(true);
+            // Set the destination to the counter waypoint
+            agent.SetDestination(exitWaypoint.position);
+          
+        }
+
+       
+
+        
+    }
+
+      public void MoveToExitWaypoint()
+    {
+        if (agent != null && exitWaypoint != null)
+        {
+            // Set the destination to the exit waypoint
+            agent.SetDestination(exitWaypoint.position);
+        }
+    }
 
 }

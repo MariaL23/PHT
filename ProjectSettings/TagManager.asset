@@ -17,6 +17,7 @@ TagManager:
   - CupBoba
   - Boba2
   - BlackBoba
+  - PickUpCounter
   layers:
   - Default
   - TransparentFX

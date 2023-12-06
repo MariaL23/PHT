@@ -7,6 +7,7 @@ public class NPCSpawner : MonoBehaviour
     public Transform spawnPoint;     // Point where NPCs will be spawned
     public float spawnInterval = 240f;  // Time between NPC spawns in seconds (4 minutes)
     
+    public int npcCounter = 1;
       private int currentPrefabIndex = 0; 
     private void Start()
     {
@@ -21,20 +22,37 @@ public class NPCSpawner : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnInterval);
 
-            // Choose a random NPC prefab from the array
+            
             GameObject selectedPrefab = npcPrefabs[currentPrefabIndex];
+            GameObject spawnedNPC = Instantiate(selectedPrefab, spawnPoint.position, spawnPoint.rotation);
 
             // Spawn the selected NPC at the spawn point
-            Instantiate(selectedPrefab, spawnPoint.position, spawnPoint.rotation);
+            
             currentPrefabIndex = (currentPrefabIndex + 1) % npcPrefabs.Length;
+
+             NPCMovement npcMovement = spawnedNPC.GetComponent<NPCMovement>();
+            if (npcMovement != null)
+            {
+                npcMovement.npcID = npcCounter;
+            }
+
+             npcCounter++;
         }
     }
 
 
        void SpawnInitialNPC()
     {
-        // Spawn the initial NPC based on the currentPrefabIndex
-        GameObject selectedPrefab = npcPrefabs[1];
-        Instantiate(selectedPrefab, spawnPoint.position, spawnPoint.rotation);
+       GameObject selectedPrefab = npcPrefabs[2];
+        GameObject spawnedNPC = Instantiate(selectedPrefab, spawnPoint.position, spawnPoint.rotation);
+
+        // Set the npcID in the NPCMovement script
+        NPCMovement npcMovement = spawnedNPC.GetComponent<NPCMovement>();
+        if (npcMovement != null)
+        {
+            npcMovement.npcID = npcCounter;
+        }
+
+        npcCounter++;
     }
 }
