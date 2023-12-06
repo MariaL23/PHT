@@ -5,21 +5,17 @@ using UnityEngine.AI;
 
 public class NPCMovement : MonoBehaviour
 {
-    public int npcID;
-    public OrderManager orderManager;
-    public OrderBagScript orderBagScript;
-
     public List<Transform> waypoints;
     public float waitTime = 5f;  // Time to wait at each waypoint.
     public float Speed;
-    public Transform counterWaypoint;
+
     private NavMeshAgent agent;
     private int currentWaypointIndex;
     private bool isMoving = true;
-    private Animator animator;
+
     public AnimationClip animationClip;
 
-    public NPCCaller Caller;
+    private Animator animator;
 
     private void Start()
     {
@@ -50,6 +46,8 @@ public class NPCMovement : MonoBehaviour
         // Proceed to the next waypoint.
         currentWaypointIndex++;
 
+
+
         // Check if the NPC has reached the last waypoint.
         if (currentWaypointIndex >= waypoints.Count)
         {    
@@ -69,75 +67,28 @@ public class NPCMovement : MonoBehaviour
         animator.SetBool("walking", true);
     }
 
-     void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("OrderTable"))
-        {
-            orderManager.NPCReachedTrigger(npcID);
-           
-        }
-    }
-
     private void DoSpecialAction()
     {
-           if (Caller != null)
-        {
-            Caller.AddReadyNPC(npcID);
-             if (Caller.IsOrderReady(npcID))
-        {
-            // Trigger NPC to move to a waypoint
-            MoveToCounter();
-        }
-        }
-        else
-        {
-            Debug.LogError("NPCCaller reference not set in the NPCMovement script.");
-        }
-
         if (animationClip != null)
+    {
+        // Get the animation state name from the clip
+        string stateName = animationClip.name;
+
+        // Check if the state exists in the Animator Controller
+        if (animator.HasState(0, Animator.StringToHash(stateName)))
         {
-            // Get the animation state name from the clip
-            string stateName = animationClip.name;
-
-            // Check if the state exists in the Animator Controller
-            if (animator.HasState(0, Animator.StringToHash(stateName)))
-            {
-                animator.Play(stateName);
-                transform.Rotate(0f, 180f, 0f);
-                Debug.Log("Special action at the last waypoint!");
-
-                // Notify ready NPCs when the animation is played
-
-           
-              
-            }
-            else
-            {
-                Debug.LogError($"Animation state '{stateName}' not found in the Animator Controller.");
-            }
+            animator.Play(stateName);
+            transform.Rotate(0f, 180f, 0f);
+            Debug.Log("Special action at the last waypoint!");
         }
         else
         {
-            Debug.LogError("Animation clip is not assigned.");
+            Debug.LogError($"Animation state '{stateName}' not found in the Animator Controller.");
         }
     }
-
- 
-
-
-
-    public void MoveToCounter()
+    else
     {
-        // Ensure the NPC has a NavMeshAgent component
-        NavMeshAgent agent = GetComponent<NavMeshAgent>();
-        if (agent != null && counterWaypoint != null)
-        {
-            // Set the destination to the counter waypoint
-            agent.SetDestination(counterWaypoint.position);
-            animator.SetBool("walking", true);
-        }
+        Debug.LogError("Animation clip is not assigned.");
     }
-
-
-
+    }
 }

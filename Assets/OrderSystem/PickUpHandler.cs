@@ -38,7 +38,7 @@ public class PickUpHandler : MonoBehaviour
         }
 
         // Check if the entering object has the NPCControl component
-        NPCMovement npcControl = other.GetComponent<NPCMovement>();
+        NPCControl npcControl = other.GetComponent<NPCControl>();
         if (npcControl != null)
         {
             npcID = npcControl.npcID; // Store NPC ID in the class-level variable
@@ -62,7 +62,7 @@ public class PickUpHandler : MonoBehaviour
             hasCup = false;
         }
 
-        NPCMovement npcControl = other.GetComponent<NPCMovement>();
+        NPCControl npcControl = other.GetComponent<NPCControl>();
         if (npcControl != null)
         {
             hasNPC = false;
