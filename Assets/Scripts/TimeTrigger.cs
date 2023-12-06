@@ -17,7 +17,7 @@ public class TimerTrigger : MonoBehaviour
             if (timer <= 0)
             {
                 // Perform actions when the timer reaches zero
-               // Debug.Log("Timer has reached zero!");
+                Debug.Log("Timer has reached zero!");
                 timerStarted = false;
             }
         }
@@ -27,7 +27,7 @@ public class TimerTrigger : MonoBehaviour
     {
         if (other.CompareTag("OrderTable"))
         {
-           // Debug.Log("Object entered trigger!");
+            Debug.Log("Object entered trigger!");
             timerStarted = true; // Start the timer
         }
     }

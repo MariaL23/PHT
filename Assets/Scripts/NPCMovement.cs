@@ -13,8 +13,6 @@ public class NPCMovement : MonoBehaviour
     public float waitTime = 5f;  // Time to wait at each waypoint.
     public float Speed;
     public Transform counterWaypoint;
-
-    public Transform exitWaypoint;
     private NavMeshAgent agent;
     private int currentWaypointIndex;
     private bool isMoving = true;
@@ -22,8 +20,6 @@ public class NPCMovement : MonoBehaviour
     public AnimationClip animationClip;
 
     public NPCCaller Caller;
-
-    public float pickupTime = 5f;
 
     private void Start()
     {
@@ -80,12 +76,6 @@ public class NPCMovement : MonoBehaviour
             orderManager.NPCReachedTrigger(npcID);
            
         }
-        else if (other.CompareTag("CounterWaypoint"))
-        {
-            Debug.Log("Reached the counter waypoint!");
-            // Call the leaving action when the NPC hits the PickupArea trigger
-            StartCoroutine(LeavingRoutine());
-        }
     }
 
     private void DoSpecialAction()
@@ -99,7 +89,10 @@ public class NPCMovement : MonoBehaviour
             MoveToCounter();
         }
         }
-       
+        else
+        {
+            Debug.LogError("NPCCaller reference not set in the NPCMovement script.");
+        }
 
         if (animationClip != null)
         {
@@ -130,6 +123,9 @@ public class NPCMovement : MonoBehaviour
     }
 
  
+
+
+
     public void MoveToCounter()
     {
         // Ensure the NPC has a NavMeshAgent component
@@ -138,33 +134,10 @@ public class NPCMovement : MonoBehaviour
         {
             // Set the destination to the counter waypoint
             agent.SetDestination(counterWaypoint.position);
-          
+            animator.SetBool("walking", true);
         }
     }
 
-      private void PerformLeavingAction()
-    {
-       StartCoroutine(LeavingRoutine());
-       Debug.Log("Leaving action performed!");
-    }
 
-    IEnumerator LeavingRoutine()
-    {
-         // Wait for a specified time at the counter
-        yield return new WaitForSeconds(pickupTime);
-
-        
-        if (agent != null && exitWaypoint != null)
-        {
-            animator.SetBool("OrderPickup", true);
-            // Set the destination to the counter waypoint
-            agent.SetDestination(exitWaypoint.position);
-          
-        }
-
-       
-
-        
-    }
 
 }
