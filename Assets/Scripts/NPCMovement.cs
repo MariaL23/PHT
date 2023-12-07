@@ -213,7 +213,7 @@ public class NPCMovement : MonoBehaviour
 
             }
            
-           
+            phone.SetActive(false);
             PaymentText.SetActive(true);
             OrderBag.SetActive(true);
             // Set the destination to the counter waypoint

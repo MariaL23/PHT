@@ -33,7 +33,7 @@ public class TimerTrigger : MonoBehaviour
     {
         if (other.CompareTag("OrderTable"))
         {
-            Debug.Log("Object entered trigger!");
+            //Debug.Log("Object entered trigger!");
             timerStarted = true; // Start the timer
             timerSlider.gameObject.SetActive(true); // Activate the slider
         }

@@ -9,6 +9,8 @@ public class PaymentSystem : MonoBehaviour
 
    public TextMeshPro earningsText;
 
+   public GameObject winText;
+
     public int winAmount = 200;
     
     void Update()
@@ -17,6 +19,8 @@ public class PaymentSystem : MonoBehaviour
         if (totalPayment >= winAmount)
         {
             Debug.Log("Earnings = " + totalPayment + "You win!");
+            winText.SetActive(true);
+            
             // Load the win scene
             StartCoroutine(Wait());
         }
