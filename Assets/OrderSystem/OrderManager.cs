@@ -23,11 +23,7 @@ public class OrderManager : MonoBehaviour
         public int npcID;
     }
 
-    public GameObject GreenteaObject;
-    public GameObject BlackteaObject;
-    public GameObject BlackBobaObject;
-    public GameObject Boba2Object;
-    
+
 
 
     public List<string> cupSizes = new List<string>();
@@ -35,13 +31,15 @@ public class OrderManager : MonoBehaviour
     public List<string> sirups = new List<string>();
     public List<string> teas = new List<string>();
 
-   
+     public AudioSource audioSource;
+    public AudioClip correctSound;
+    public AudioClip wrongSound;
 
     public TextMeshPro orderText;
 
     public TextMeshPro CupText;
 
-      public Color correctColor = Color.green;
+    public Color correctColor = Color.green;
     public Color wrongColor = Color.red;
     
     public TextMeshPro NextorderText;
@@ -144,39 +142,18 @@ public void ItemPlacedTrigger(string playerItemType, int npcID)
         if (playerItemType == currentOrder.boba || playerItemType == currentOrder.syrup || playerItemType == currentOrder.tea || playerItemType == currentOrder.cupSize)
         {
             Debug.Log("Correct item: " + playerItemType);
+              if (audioSource != null && correctSound != null)
+                {
+                    audioSource.clip = correctSound;
+                    audioSource.Play();
+                }
 
             // Update the corresponding flag
             if (playerItemType == currentOrder.boba) bobaPlaced = true;
             else if (playerItemType == currentOrder.syrup) syrupPlaced = true;
             else if (playerItemType == currentOrder.tea) teaPlaced = true;
             
-            /*
-            // Check if the triggered item type is "Greentea"
-            if (playerItemType == "GreenTea")
-            {
-                 GreenteaObject.SetActive(true);
-                
-            }
-
-                if (playerItemType == "BlackTea")
-            {
-            
-              BlackteaObject.SetActive(true);
-                
-            }
-
-                if (playerItemType == "Black")
-            {
-                 BlackBobaObject.SetActive(true);
-                
-            }
-
-                if (playerItemType == "Orange")
-            {
-                    Boba2Object.SetActive(true);
-                
-            }
-            */
+         
 
             // Check if all items in the order are placed correctly
             if (bobaPlaced && syrupPlaced && teaPlaced )
@@ -205,6 +182,11 @@ public void ItemPlacedTrigger(string playerItemType, int npcID)
         else
         {
             Debug.Log("Wrong item. Try again!");
+             if (audioSource != null && wrongSound != null)
+                {
+                    audioSource.clip = wrongSound;
+                    audioSource.Play();
+                }
         }
     }
 }

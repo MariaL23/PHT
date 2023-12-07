@@ -31,9 +31,13 @@ public class NPCMovement : MonoBehaviour
     public float pickupTime = 5f;
     public GameObject OrderBag;
 
+    public GameObject phone;
+
     public Transform exitWaypoint;
 
     public GameObject PaymentText;
+    public PaymentSystem paymentSystem;
+     public int paymentAmount = 50;
     
 
     private void Start()
@@ -98,10 +102,10 @@ public class NPCMovement : MonoBehaviour
         // Check if the NPC has reached the last waypoint.
         if (currentWaypointIndex >= waypoints.Count)
         {    
-            Debug.Log("Reached the last waypoint!");
-            // Special action for the last waypoint.
+           
+           
             DoSpecialAction();
-            yield break;  // Stop the coroutine after the special action
+            yield break;  // Stop the coroutine 
         }
         
         MoveToPoint(waypoints[currentWaypointIndex].position);
@@ -135,7 +139,9 @@ public class NPCMovement : MonoBehaviour
         {
             animator.Play(stateName);
             transform.Rotate(0f, 180f, 0f);
-            Debug.Log("Special action at the last waypoint!");
+            phone.SetActive(true);
+
+            //Debug.Log("Special action at the last waypoint!");
         }
         else
         {
@@ -188,6 +194,11 @@ public class NPCMovement : MonoBehaviour
     }
         if (agent != null && exitWaypoint != null)
         {
+         if (paymentSystem != null && paymentAmount > 0)
+            {
+                paymentSystem.AddPayment(paymentAmount);
+            }
+
             PaymentText.SetActive(true);
             OrderBag.SetActive(true);
             // Set the destination to the counter waypoint
