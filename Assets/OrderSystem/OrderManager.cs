@@ -118,6 +118,7 @@ public Order NPCReachedTrigger(int npcID)
             CupText.text = "Correct Cup! " ;
             CupText.color = correctColor;
             cupPlaced = true;
+           
             cupPlacement.cupNpcID = currentOrder.npcID; 
         }
         else
@@ -125,6 +126,7 @@ public Order NPCReachedTrigger(int npcID)
             Debug.Log("Wrong cup. Try again!");
             CupText.text = "Wrong Cup! " ;
             CupText.color = wrongColor;
+             
             cupPlaced = false;
         }
 
@@ -162,9 +164,11 @@ public void ItemPlacedTrigger(string playerItemType, int npcID)
 
                     CompletedOrder completedOrder = new CompletedOrder
                     {
+                        
                         order = currentOrder    
                     };
-
+                    orderText.text = "Order Complete!";
+                    orders.RemoveAt(0);
                     completedOrders.Add(completedOrder);
 
 
@@ -174,7 +178,7 @@ public void ItemPlacedTrigger(string playerItemType, int npcID)
                 teaPlaced = false;
                 cupPlaced = false;
 
-                orders.RemoveAt(0);
+               
 
         
             }

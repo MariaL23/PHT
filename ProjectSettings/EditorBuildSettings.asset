@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/sarah2.unity
     guid: 89d5afb766cbfcc4e93cb41210215c3b
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: cb0ca656f21bc754bb2db83e0f304954
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bd467eb7812a6304184e1af56a7af363,
       type: 2}

@@ -1,19 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 
 public class PaymentSystem : MonoBehaviour
 {
    public int totalPayment = 0;
 
+   public TextMeshPro earningsText;
+
     public int winAmount = 200;
     
     void Update()
     {
+        earningsText.text = "Total Amount Earned: " + totalPayment;
         if (totalPayment >= winAmount)
         {
             Debug.Log("Earnings = " + totalPayment + "You win!");
             // Load the win scene
-           // SceneManager.LoadScene(2);
+            StartCoroutine(Wait());
         }
     }
 
@@ -24,5 +29,11 @@ public class PaymentSystem : MonoBehaviour
         Debug.Log("Payment added: " + amount + ". Total payment: " + totalPayment);
 
    
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(10);
+         SceneManager.LoadScene(2);
     }
 }

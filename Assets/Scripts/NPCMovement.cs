@@ -36,8 +36,15 @@ public class NPCMovement : MonoBehaviour
     public Transform exitWaypoint;
 
     public GameObject PaymentText;
+
+    public float textTime = 2f;
     public PaymentSystem paymentSystem;
-     public int paymentAmount = 50;
+    public int paymentAmount = 50;
+
+    //Audio
+    public AudioSource audioSource;
+
+    public AudioClip paymentSound;
     
 
     private void Start()
@@ -197,12 +204,21 @@ public class NPCMovement : MonoBehaviour
          if (paymentSystem != null && paymentAmount > 0)
             {
                 paymentSystem.AddPayment(paymentAmount);
-            }
+             if (audioSource != null && paymentSound != null)
+                {
+                    audioSource.clip = paymentSound;
+                    Debug.Log("Payment sound played");
+                    audioSource.Play();
+                }
 
+            }
+           
+           
             PaymentText.SetActive(true);
             OrderBag.SetActive(true);
             // Set the destination to the counter waypoint
             agent.SetDestination(exitWaypoint.position);
+            StartCoroutine(ByeText());
           
         }
 
@@ -213,11 +229,30 @@ public class NPCMovement : MonoBehaviour
 
       public void MoveToExitWaypoint()
     {
-        if (agent != null && exitWaypoint != null)
+       if (agent != null && exitWaypoint != null && orderManager != null)
+    {   
+        phone.SetActive(false);
+        animator.SetBool("SadWalk", true);
+
+   
+        // Find the index of the order with the same NPC ID
+        int indexToRemove = orderManager.orders.FindIndex(order => order.npcID == npcID);
+
+        // Remove the order with the same NPC ID from the orders list in the OrderManager
+        if (indexToRemove != -1)
         {
-            // Set the destination to the exit waypoint
-            agent.SetDestination(exitWaypoint.position);
+            orderManager.orders.RemoveAt(indexToRemove);
         }
+
+        // Set the destination to the exit waypoint
+        agent.SetDestination(exitWaypoint.position);
+    }
+    }
+
+    IEnumerator ByeText()
+    {
+        yield return new WaitForSeconds(textTime);
+        PaymentText.SetActive(false);
     }
 
 }

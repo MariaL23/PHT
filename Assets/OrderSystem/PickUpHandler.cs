@@ -8,11 +8,11 @@ public class PickUpHandler : MonoBehaviour
     private int npcID; // Variable to store NPC ID
     private bool hasCup; // Flag to track if a cup is present in the collider
 
-    public VisualEffect visualEffect;
-    public GameObject OrderBag;
-    public OrderManager orderManager;
+    public VisualEffect visualEffect; // Reference to the visual effect component
+    public GameObject OrderBag; // Reference to the OrderBag game object
+    public OrderManager orderManager; // Reference to the OrderManager component
 
-    public float pickupTime = 3f;
+    public float pickupTime = 3f; // Time to wait before the bag disappears
 
     private void OnTriggerEnter(Collider other)
     {
@@ -38,13 +38,13 @@ public class PickUpHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(2f); // Delay for 2 seconds
 
-        Debug.Log("Cup with id " + cupNpcID + " has entered the collider");
-        //visualEffect.Play();
+       
+        visualEffect.Play();
         OrderBag.SetActive(true);
         
         // Store cupNpcID in the variable
         this.cupNpcID = cupNpcID;
-        hasCup = true;
+        //hasCup = true;
 
         // Destroy the cup object
         Destroy(cupObject);
@@ -55,7 +55,8 @@ public class PickUpHandler : MonoBehaviour
 
     private IEnumerator ByeBag()
     {
-
+       
+      
         yield return new WaitForSeconds(pickupTime); // Delay for x seconds has to match the Pickupwaittime in NpcMovement
         OrderBag.SetActive(false);
     }

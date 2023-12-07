@@ -5,7 +5,7 @@ public class FlaskAnimationtrigger : MonoBehaviour
 {
     public Animator anim;
     public GameObject Sirup;
-    private bool animationTriggered = false;
+   
 
     private void Start()
     {
