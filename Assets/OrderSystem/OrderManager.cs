@@ -54,7 +54,8 @@ public class OrderManager : MonoBehaviour
 
     public void Start()
     {
-  
+        orders.Clear();
+        completedOrders.Clear();
     }
 public Order NPCReachedTrigger(int npcID)
 {

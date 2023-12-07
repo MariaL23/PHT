@@ -7,6 +7,13 @@ public class NPCCaller : MonoBehaviour
     public List<int> readyNPCIDs = new List<int>();
     public List<int> readyOrders = new List<int>();
 
+
+    public void Start()
+    {
+        readyNPCIDs.Clear();
+        readyOrders.Clear();
+    }
+
     public void AddReadyNPC(int npcID)
     {
         // Add the NPC ID to the list of ready NPCs
