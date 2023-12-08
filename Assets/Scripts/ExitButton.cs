@@ -19,7 +19,7 @@ public class ExitButton : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
-        UnityEditor.EditorApplication.ExitPlaymode();
+      //  UnityEditor.EditorApplication.ExitPlaymode();
        Debug.Log("Exit Game");
     }
 }

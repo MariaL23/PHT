@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2541852, g: 0.5236765, b: 0.6842552, a: 1}
+  m_IndirectSpecularColor: {r: 0.2542678, g: 0.5232539, b: 0.68228805, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3990,7 +3990,7 @@ PrefabInstance:
     - target: {fileID: 2484143264468864582, guid: 256cb88e47f6af147b9968717a79edcf,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.79
+      value: 1.64
       objectReference: {fileID: 0}
     - target: {fileID: 2484143264468864582, guid: 256cb88e47f6af147b9968717a79edcf,
         type: 3}
@@ -4035,7 +4035,7 @@ PrefabInstance:
     - target: {fileID: 2484143264468864582, guid: 256cb88e47f6af147b9968717a79edcf,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.433
+      value: 0.482
       objectReference: {fileID: 0}
     - target: {fileID: 2484143264468864582, guid: 256cb88e47f6af147b9968717a79edcf,
         type: 3}
@@ -6468,6 +6468,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5103905686964355409, guid: a43658e68d49d7647b5dd3621a16c303,
+        type: 3}
+      propertyPath: sceneID
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7465282500388095817, guid: a43658e68d49d7647b5dd3621a16c303,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6476,7 +6481,7 @@ PrefabInstance:
     - target: {fileID: 7465282500388095817, guid: a43658e68d49d7647b5dd3621a16c303,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.92
+      value: -0.792
       objectReference: {fileID: 0}
     - target: {fileID: 7465282500388095817, guid: a43658e68d49d7647b5dd3621a16c303,
         type: 3}

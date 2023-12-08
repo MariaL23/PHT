@@ -10,15 +10,25 @@ public class PaymentSystem : MonoBehaviour
    public TextMeshPro earningsText;
 
    public GameObject winText;
+    public TextMeshPro TextWin;
+
+    public float waitTime = 10f;
 
     public int winAmount = 200;
+
+    public TextMeshPro TodaysGoal;
     
+
+    void Start()
+    {
+        TodaysGoal.text = "Today's Goal:" + winAmount + "Chinglings";
+    }
     void Update()
     {
-        earningsText.text = "Total Amount Earned: " + totalPayment;
+        earningsText.text = "Total Amount Earned: \n"  + totalPayment;
         if (totalPayment >= winAmount)
-        {
-            Debug.Log("Earnings = " + totalPayment + "You win!");
+        {   
+            TextWin.text = "Congratulations!\n You earned\n" + totalPayment + "Chinglings.\nYour Shift is ending..";
             winText.SetActive(true);
             
             // Load the win scene
@@ -34,10 +44,12 @@ public class PaymentSystem : MonoBehaviour
 
    
     }
-
+    
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(waitTime);
          SceneManager.LoadScene(2);
     }
+
+
 }

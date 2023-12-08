@@ -6,6 +6,7 @@ public class ButtonClick : MonoBehaviour
 {
    
     public Animator animator;
+    public int sceneID = 0;
 
     void Start ()
     {
@@ -24,7 +25,7 @@ public class ButtonClick : MonoBehaviour
         // Udfør handling baseret på knappens ID
          Debug.Log("Start Game");
             //animator.SetTrigger("ChangeColorTrigger");
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(sceneID);
     }
 
 }
